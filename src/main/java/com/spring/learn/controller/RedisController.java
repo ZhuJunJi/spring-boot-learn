@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class RedisController {
 
-    @GetMapping("/set/{userName}/{age}")
+    @GetMapping("/saveUser/{userName}/{age}")
     @ResponseBody
     public User set(@PathVariable String userName, @PathVariable Integer age){
         RedisUtil.set(userName,new User(userName, age));
         return RedisUtil.get(userName);
     }
 
-    @GetMapping("/get/{key}")
+    @GetMapping("/getUser/{userName}")
     @ResponseBody
-    public User get(@PathVariable String key){
-        return RedisUtil.get(key);
+    public User get(@PathVariable String userName){
+        return RedisUtil.get(userName);
     }
 }

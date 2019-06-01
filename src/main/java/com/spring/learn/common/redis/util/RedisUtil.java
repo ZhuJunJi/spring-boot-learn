@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @SuppressWarnings("all")
-public final class RedisUtil<T> {
+public final class RedisUtil<K,T> {
 
     private static RedisTemplate<String, Object> redisTemplate;
 
@@ -163,8 +163,8 @@ public final class RedisUtil<T> {
      * @param key 键
      * @return 对应的多个键值
      */
-    public static Map<Object, Object> hmget(String key) {
-        return redisTemplate.opsForHash().entries(key);
+    public static<k, T> Map<k, T> hmget(String key) {
+        return (Map<k, T>)redisTemplate.opsForHash().entries(key);
     }
     /**
      * HashSet
@@ -172,7 +172,7 @@ public final class RedisUtil<T> {
      * @param map 对应多个键值
      * @return true 成功 false 失败
      */
-    public static boolean hmset(String key, Map<String, Object> map) {
+    public static<T> boolean hmset(String key, Map<String, T> map) {
         try {
             redisTemplate.opsForHash().putAll(key, map);
             return true;
@@ -188,7 +188,7 @@ public final class RedisUtil<T> {
      * @param time 时间(秒)
      * @return true成功 false失败
      */
-    public static boolean hmset(String key, Map<String, Object> map, long time) {
+    public static<T> boolean hmset(String key, Map<String, T> map, long time) {
         try {
             redisTemplate.opsForHash().putAll(key, map);
             if (time > 0) {
@@ -224,7 +224,7 @@ public final class RedisUtil<T> {
      * @param time 时间(秒) 注意:如果已存在的hash表有时间,这里将会替换原有的时间
      * @return true 成功 false失败
      */
-    public static boolean hset(String key, String item, Object value, long time) {
+    public static<T> boolean hset(String key, String item, T value, long time) {
         try {
             redisTemplate.opsForHash().put(key, item, value);
             if (time > 0) {
