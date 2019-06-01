@@ -1,8 +1,6 @@
 package com.spring.learn.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.PathVariable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,19 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SuppressWarnings("unchecked")
 @RestController
+@Slf4j
 public class HelloWorldController {
-
-    @Autowired
-    private KafkaTemplate kafkaTemplate;
 
     @RequestMapping("/hello")
     public String hello(){
         return "Hello Spring Boot！";
     }
 
-    @RequestMapping("/send/{message}")
-    public String send(@PathVariable(name = "message") String message){
-        kafkaTemplate.send("message", message);
-        return "success";
-    }
 }
