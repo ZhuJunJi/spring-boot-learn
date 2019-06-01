@@ -1,6 +1,6 @@
-package com.spring.learn.kafka.consumer;
+package com.spring.learn.common.kafka.consumer;
 
-import com.spring.learn.kafka.constant.Topic;
+import com.spring.learn.common.kafka.constant.Topic;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

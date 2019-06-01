@@ -1,4 +1,4 @@
-package com.spring.learn.kafka.constant;
+package com.spring.learn.common.kafka.constant;
 
 /**
  * Created by J.zhu on 2019/5/29.

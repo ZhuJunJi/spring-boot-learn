@@ -1,7 +1,7 @@
 package com.spring.learn.controller;
 
-import com.spring.learn.kafka.constant.Topic;
-import com.spring.learn.kafka.producer.KafKaProducer;
+import com.spring.learn.common.kafka.constant.Topic;
+import com.spring.learn.common.kafka.producer.KafKaProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

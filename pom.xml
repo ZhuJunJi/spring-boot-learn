@@ -41,7 +41,13 @@
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
-		
+
+		<!-- springBoot集成redis -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
 		<!-- 调试工具热编译 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
