@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.learn.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.spring.learn.common.entity.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.spring.learn.common.entity.User">
+        INSERT INTO `test`.`user`(`user_name`, `age`) VALUES (#{userName}, #{age});
+    </insert>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT user_id, user_name, age FROM user WHERE user_id = #{userId}
+    </select>
+
+</mapper>

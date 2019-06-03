@@ -11,6 +11,11 @@ public class User extends DataEntity{
         this.userName = userName;
         this.age = age;
     }
+
+    /**
+     * 用户ID
+     */
+    private Integer userId;
     /**
      * 用户名
      */
@@ -19,6 +24,14 @@ public class User extends DataEntity{
      * 年龄
      */
     private Integer age;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public String getUserName() {
         return userName;
@@ -39,7 +52,8 @@ public class User extends DataEntity{
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
                 ", age=" + age +
                 '}';
     }

@@ -62,6 +62,21 @@ spring:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
-
-
-
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://192.168.137.100:3306/test
+      username: root
+      password: "123456"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    # 只读账户
+    slave1:
+      jdbc-url: jdbc:mysql://192.168.137.100:3307/test
+      username: pig
+      password: "123456"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    # 只读账户
+    slave2:
+      jdbc-url: jdbc:mysql://192.168.137.100:3308/test
+      username: pig
+      password: "123456"
+      driver-class-name: com.mysql.cj.jdbc.Driver

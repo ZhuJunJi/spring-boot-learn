@@ -155,8 +155,8 @@ public final class RedisUtil<K,T> {
      * @param item 项 不能为null
      * @return 值
      */
-    public static Object hget(String key, String item) {
-        return redisTemplate.opsForHash().get(key, item);
+    public static<T> T hget(String key, String item) {
+        return (T) redisTemplate.opsForHash().get(key, item);
     }
     /**
      * 获取hashKey对应的所有键值
@@ -207,7 +207,7 @@ public final class RedisUtil<K,T> {
      * @param value 值
      * @return true 成功 false失败
      */
-    public static boolean hset(String key, String item, Object value) {
+    public static<T> boolean hset(String key, String item, T value) {
         try {
             redisTemplate.opsForHash().put(key, item, value);
             return true;
@@ -241,7 +241,7 @@ public final class RedisUtil<K,T> {
      * @param key 键 不能为null
      * @param item 项 可以使多个 不能为null
      */
-    public static void hdel(String key, Object... item) {
+    public static<T> void hdel(String key, T... item) {
         redisTemplate.opsForHash().delete(key, item);
     }
     /**
@@ -352,7 +352,7 @@ public final class RedisUtil<K,T> {
      * @param values 值 可以是多个
      * @return 移除的个数
      */
-    public static long setRemove(String key, Object... values) {
+    public static<T> long setRemove(String key, T... values) {
         try {
             Long count = redisTemplate.opsForSet().remove(key, values);
             return count;
