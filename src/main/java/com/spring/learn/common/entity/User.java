@@ -1,7 +1,9 @@
 package com.spring.learn.common.entity;
 
 /**
- * Created by J.zhu on 2019/6/1.
+ *
+ * @author J.zhu
+ * @date 2019/6/1
  */
 public class User extends DataEntity{
 

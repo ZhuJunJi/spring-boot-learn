@@ -79,4 +79,3 @@ START SLAVE;
 # 4、查看同步状态
 show SLAVE status;
 ```
-

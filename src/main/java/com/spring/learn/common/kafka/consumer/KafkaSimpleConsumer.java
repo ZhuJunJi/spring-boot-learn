@@ -11,15 +11,22 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * Created by J.zhu on 2019/5/29.
+ *
+ * @author J.zhu
+ * @date 2019/5/29
  */
 @Component
 @Slf4j
 public class KafkaSimpleConsumer {
 
-    // 简单消费者
+    /**
+     * 简单消费者
+     * @param record
+     * @param topic
+     * @param consumer
+     */
     @KafkaListener(groupId = "simpleGroup", topics = Topic.SIMPLE)
-    public void consumer1_1(ConsumerRecord<String, Object> record, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic, Consumer consumer) {
+    public void consumer1G1(ConsumerRecord<String, Object> record, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic, Consumer consumer) {
         System.out.println("消费者收到消息:" + record.value() + "; topic:" + topic);
         /*
          * 如果需要手工提交异步 consumer.commitSync();

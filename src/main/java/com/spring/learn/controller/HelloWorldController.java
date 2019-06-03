@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by J.zhu on 2019/5/28.
+ *
+ * @author J.zhu
+ * @date 2019/5/28
  * Hello World Controller
  */
 @SuppressWarnings("unchecked")

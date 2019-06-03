@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Created by J.zhu on 2019/6/1.
+ *
+ * @author J.zhu
+ * @date 2019/6/1
  */
 @RequestMapping("/redis")
 @RestController

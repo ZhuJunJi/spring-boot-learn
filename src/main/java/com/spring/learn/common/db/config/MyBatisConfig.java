@@ -1,4 +1,4 @@
-package com.spring.learn.common.dataSource.config;
+package com.spring.learn.common.db.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,7 +13,9 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
- * Created by J.zhu on 2019/6/3.
+ *
+ * @author J.zhu
+ * @date 2019/6/3
  */
 @EnableTransactionManagement
 @Configuration

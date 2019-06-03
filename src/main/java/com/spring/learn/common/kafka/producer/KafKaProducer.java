@@ -9,7 +9,9 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 /**
- * Created by J.zhu on 2019/5/29.
+ *
+ * @author J.zhu
+ * @date 2019/5/29
  * @description : kafka 生产者
  */
 @Component

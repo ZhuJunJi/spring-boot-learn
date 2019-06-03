@@ -1,7 +1,7 @@
 package com.spring.learn.service.impl;
 
-import com.spring.learn.common.dataSource.annotation.Master;
-import com.spring.learn.common.dataSource.annotation.Slave;
+import com.spring.learn.common.db.annotation.Master;
+import com.spring.learn.common.db.annotation.Slave;
 import com.spring.learn.common.entity.User;
 import com.spring.learn.mapper.UserMapper;
 import com.spring.learn.service.UserService;
@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by J.zhu on 2019/6/3.
+ *
+ * @author J.zhu
+ * @date 2019/6/3
  * 用户 Service 实现类
  */
 @Service

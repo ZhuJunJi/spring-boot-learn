@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Created by J.zhu on 2019/6/3.
+ *
+ * @author J.zhu
+ * @date 2019/6/3
  * 用户 Controller
  */
 @RequestMapping("/user")

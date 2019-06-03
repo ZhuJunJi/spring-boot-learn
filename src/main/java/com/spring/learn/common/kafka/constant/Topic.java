@@ -1,7 +1,9 @@
 package com.spring.learn.common.kafka.constant;
 
 /**
- * Created by J.zhu on 2019/5/29.
+ *
+ * @author J.zhu
+ * @date 2019/5/29
  * 消息主题
  */
 public class   Topic {
