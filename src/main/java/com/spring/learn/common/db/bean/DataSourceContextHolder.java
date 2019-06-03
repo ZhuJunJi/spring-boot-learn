@@ -20,25 +20,15 @@ public class DataSourceContextHolder {
     private static final Integer REPEAT_VALUE = 999;
 
     public static void set(DBTypeEnum dbType) {
-        try {
-            CONTEXTHOLDER.set(dbType);
-        }catch (Exception e){
-            log.error("设置数据源错误：",e);
-        }finally {
-            CONTEXTHOLDER.remove();
-        }
+        CONTEXTHOLDER.set(dbType);
 
     }
 
     public static DBTypeEnum get() {
-        try {
-            return CONTEXTHOLDER.get();
-        }catch (Exception e){
-            log.error("获取数据源错误：",e);
-        }finally {
-            CONTEXTHOLDER.remove();
-        }
-        return null;
+        return CONTEXTHOLDER.get();
+    }
+    public static void removeContextholder(){
+        CONTEXTHOLDER.remove();
     }
 
     public static void master() {

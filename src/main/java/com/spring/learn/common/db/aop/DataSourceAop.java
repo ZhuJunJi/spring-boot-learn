@@ -1,6 +1,7 @@
 package com.spring.learn.common.db.aop;
 
 import com.spring.learn.common.db.bean.DataSourceContextHolder;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -36,5 +37,10 @@ public class DataSourceAop {
     @Before("writePointcut()")
     public void write() {
         DataSourceContextHolder.master();
+    }
+
+    @After("readPointcut(),writePointcut()")
+    public void removeContextholder() {
+        DataSourceContextHolder.removeContextholder();
     }
 }
