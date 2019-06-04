@@ -2,7 +2,6 @@ package com.spring.learn.common.db.bean;
 
 import com.spring.learn.common.db.enums.DBTypeEnum;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**

@@ -30,8 +30,16 @@ public class UserController {
 
     @GetMapping("/get/{userId}")
     @ResponseBody
-    public String createUser(@PathVariable Integer userId){
+    public String createUser(@PathVariable Integer userId) {
+        if(userId == 2){
+            RuntimeException runtimeException = new RuntimeException("错误日志测试");
+            log.error("错误日志测试",runtimeException);
+            throw runtimeException;
+        }
         User user = userService.getUserById(userId);
+        log.debug("user:{}",user.toString());
+        log.error("user:{}",user.toString());
+
         return user.toString();
     }
 }
