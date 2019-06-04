@@ -82,4 +82,12 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
+#  path: /logs
+#  pattern:
+#    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+#    console: "[%d{yyyy‐MM‐dd}-[%level]-[%msg]-%logger{50}%n"
+#    file: "%d{yyyy‐MM‐dd} === [%thread] === %level === %logger{50} ==== %msg%n"
+#  file:
+#    max-history: 30
+#    max-size: 1KB
   config: classpath:logback.xml
