@@ -26,7 +26,7 @@ public class KafkaSimpleConsumer {
      * @param consumer
      */
     @KafkaListener(groupId = "simpleGroup", topics = Topic.SIMPLE)
-    public void consumer1G1(ConsumerRecord<String, Object> record, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic, Consumer consumer) {
+    public void consumer(ConsumerRecord<String, Object> record, @Header(KafkaHeaders.RECEIVED_TOPIC) String topic, Consumer consumer) {
         System.out.println("消费者收到消息:" + record.value() + "; topic:" + topic);
         /*
          * 如果需要手工提交异步 consumer.commitSync();
