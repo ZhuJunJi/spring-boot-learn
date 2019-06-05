@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class KafkaGroupConsumer {
 
     /**
-     * 分组1 中的消费者1
+     * 分组1 中的消费者1 消费 0分区，1分区
      * @param record
      */
     @KafkaListener(id = "consumer1-1", groupId = "group1", topicPartitions =
@@ -30,7 +30,7 @@ public class KafkaGroupConsumer {
     }
 
     /**
-     * 分组1 中的消费者2
+     * 分组1 中的消费者2 消费 2分区
      * @param record
      */
     @KafkaListener(id = "consumer1-2", groupId = "group1", topicPartitions =
@@ -41,7 +41,7 @@ public class KafkaGroupConsumer {
     }
 
     /**
-     * 分组1 中的消费者3
+     * 分组1 中的消费者3 消费 3分区
      * @param record
      */
     @KafkaListener(id = "consumer1-3", groupId = "group1", topicPartitions =
@@ -52,7 +52,7 @@ public class KafkaGroupConsumer {
     }
 
     /**
-     * 分组2 中的消费者
+     * 分组2 中的消费者 消费 0分区，1分区，2分区，3分区
      * @param record
      */
     @KafkaListener(id = "consumer2-1", groupId = "group2", topicPartitions =

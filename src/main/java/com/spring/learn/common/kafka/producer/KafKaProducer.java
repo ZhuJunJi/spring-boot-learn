@@ -46,7 +46,7 @@ public class KafKaProducer {
     /**
      * 发送分组消息
      * @param topic 主题
-     * @param partition 组
+     * @param partition 分区
      * @param object 消息
      */
     @SuppressWarnings("unchecked")
