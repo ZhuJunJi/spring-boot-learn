@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.learn.mapper.SeckillMapper">
+
+    <resultMap id="BaseResultMap" type="com.spring.learn.common.entity.Seckill">
+        <id column="seckill_id" jdbcType="BIGINT" property="seckillId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="version" jdbcType="INTEGER" property="version" />
+    </resultMap>
+
+    <insert id="saveSuccessKilled" parameterType="com.spring.learn.common.entity.SuccessKilled">
+        INSERT INTO `test`.`success_killed` (`seckill_id`, `user_id`,`state`,`create_time`) VALUES (#{seckillId}, #{userId}, #{state}, #{createTime});
+    </insert>
+    
+    <update id="deductedNumberBySeckillId" parameterType="java.lang.Long">
+        UPDATE `test`.`seckill`  SET `number`=`number`-1 WHERE seckill_id=#{seckillId} AND `number` > 0
+    </update>
+
+    <delete id="deleteSuccessSeckilled" parameterType="java.lang.Long">
+        DELETE FROM  `test`.`success_killed` WHERE seckill_id = #{seckillId}
+    </delete>
+
+    <update id="resetSeckill" parameterType="java.lang.Long">
+        UPDATE `test`.`seckill` SET `number`=100 WHERE seckill_id = #{seckillId}
+    </update>
+
+    <select id="getSeckillCount" parameterType="java.lang.Long" resultType="java.lang.Long">
+        SELECT count(*) FROM `test`.`success_killed` WHERE seckill_id = #{seckillId}
+    </select>
+
+    <select id="getCountBySeckillId" parameterType="java.lang.Long" resultType="java.lang.Long">
+        SELECT `number` FROM `test`.`seckill` WHERE seckill_id = #{seckillId}
+    </select>
+
+</mapper>

@@ -32,8 +32,7 @@ public class DataSourceContextHolder {
 
     public static void master() {
         set(DBTypeEnum.MASTER);
-        System.out.println("切换到master");
-        log.debug("切换到master");
+        log.info("切换到master");
     }
 
     public static void slave() {
@@ -44,12 +43,10 @@ public class DataSourceContextHolder {
         }
         if (index == 0) {
             set(DBTypeEnum.SLAVE1);
-            System.out.println("切换到slave1");
-            log.debug("切换到slave1");
+            log.info("切换到slave1");
         }else {
             set(DBTypeEnum.SLAVE2);
-            System.out.println("切换到slave2");
-            log.debug("切换到slave2");
+            log.info("切换到slave2");
         }
     }
 }
