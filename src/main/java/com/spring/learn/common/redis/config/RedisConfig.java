@@ -1,10 +1,5 @@
 package com.spring.learn.common.redis.config;
 
-/**
- * redis 配置类
- * Created by J.zhu on 2019/6/1.
- */
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,7 +11,10 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * @author Administrator
+ * redis 配置类
+ *
+ * @author J.zhu
+ * @date 2019/6/1
  */
 @Configuration
 public class RedisConfig {

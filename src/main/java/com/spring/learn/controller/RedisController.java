@@ -19,6 +19,7 @@ import java.util.concurrent.*;
 @RequestMapping("/redis")
 @RestController
 @Slf4j
+@SuppressWarnings("all")
 public class RedisController {
 
     private static int corePoolSize = Runtime.getRuntime().availableProcessors();
@@ -31,7 +32,7 @@ public class RedisController {
 
     private static ExecutorService executor = new ThreadPoolExecutor(corePoolSize, corePoolSize + 1,
             10L, TimeUnit.SECONDS,
-            new LinkedBlockingQueue<Runnable>(10000), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+            new LinkedBlockingQueue<>(10000), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
     @Autowired
     private SeckillService seckillService;

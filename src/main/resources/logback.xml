@@ -23,7 +23,7 @@
             <!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
             <maxHistory>30</maxHistory>
             <!-- 文件大小查过设置值后进行分页设置1KB进行测试 默认10MB -->
-            <maxFileSize>1KB</maxFileSize>
+            <maxFileSize>50MB</maxFileSize>
             <maxHistory>60</maxHistory>
             <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>
