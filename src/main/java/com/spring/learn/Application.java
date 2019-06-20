@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @MapperScan("com.spring.learn.mapper")
 @SpringBootApplication
-@NacosPropertySource(dataId = "example", autoRefreshed = true)
+@NacosPropertySource(dataId = "spring-boot-learn", autoRefreshed = true)
 public class Application {
 
 	public static void main(String[] args) {

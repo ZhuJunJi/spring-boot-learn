@@ -17,6 +17,7 @@ docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 --name zookeeper -v /home/z
 ```
 # KAFKA_ZOOKEEPER_CONNECT KAFKA_ADVERTISED_LISTENERS=PLAINTEXT IP为宿主机器IP
 docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=192.168.137.100:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.137.100:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
+./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group group-name
 
 # kafka设置主题partitions
 /bin/kafka-topics.sh --zookeeper  192.168.137.100:2181 --alter --partitions 4 --topic spring.boot.kafka.newGroup

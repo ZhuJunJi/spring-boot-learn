@@ -70,7 +70,7 @@ public class RedisController {
                 Result result = seckillService.startSeckilRedisLock(killId, userId);
                 log.info("用户:{}{}", userId, result.getMessage());
             };
-            executor.execute(task);
+            executor.submit(task);
         }
         Long seckillCount = 0L;
         try {
