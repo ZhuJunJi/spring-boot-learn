@@ -20,8 +20,21 @@ import java.util.Properties;
  */
 @MapperScan("com.spring.learn.mapper")
 @SpringBootApplication
-@NacosPropertySource(dataId = "application", autoRefreshed = true)
+@NacosPropertySource(dataId = "spring-boot-learn", autoRefreshed = true)
 public class Application {
+
+    /**
+     * 初始化配置文件dataId
+     */
+    private static final String INIT_CONFIG_DATA_ID = "application";
+    /**
+     * 初始化配置文件Group
+     */
+    private static final String INIT_CONFIG_GROUP = "DEFAULT_GROUP";
+    /**
+     * 初始化配置超时时间设置为10秒
+     */
+    private static final Long INIT_CONFIG_TIMEOUT = 10000L;
 
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -77,12 +90,12 @@ public class Application {
             properties.setProperty("serverAddr",serverAddr);
             ConfigService configService = ConfigFactory.createConfigService(properties);
 
-            String config = configService.getConfig("application", "DEFAULT_GROUP", 10000);
+            String config = configService.getConfig(INIT_CONFIG_DATA_ID, INIT_CONFIG_GROUP, INIT_CONFIG_TIMEOUT);
             YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
             yaml.setResources(new ByteArrayResource(config.getBytes()));
             nacosProperties = yaml.getObject();
         } catch (NacosException e) {
-            throw new RuntimeException(String.format("加载Nacos(%s)配置中心配置失败",serverAddr));
+            throw new RuntimeException(String.format("加载Nacos:%s 配置中心配置失败",serverAddr));
         }
         return nacosProperties;
     }
