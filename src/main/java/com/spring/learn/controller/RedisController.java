@@ -22,7 +22,9 @@ import java.util.concurrent.*;
 @SuppressWarnings("all")
 public class RedisController {
 
-    private static int corePoolSize = Runtime.getRuntime().availableProcessors();
+//    private static int corePoolSize = Runtime.getRuntime().availableProcessors();
+
+    private static int corePoolSize = 1;
 
     /**
      * 调整队列数 拒绝服务
@@ -32,7 +34,7 @@ public class RedisController {
 
     private static ExecutorService executor = new ThreadPoolExecutor(corePoolSize, corePoolSize + 1,
             10L, TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(10000), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+            new LinkedBlockingQueue<>(10), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
     @Autowired
     private SeckillService seckillService;

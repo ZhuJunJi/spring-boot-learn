@@ -4,6 +4,7 @@ import com.alibaba.nacos.api.config.ConfigFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +22,7 @@ import java.util.Properties;
 @MapperScan("com.spring.learn.mapper")
 @SpringBootApplication
 @NacosPropertySource(dataId = "spring-boot-learn", autoRefreshed = true)
+@Slf4j
 public class Application {
 
     /**
@@ -47,6 +49,8 @@ public class Application {
 
         // 获取环境配置
         String active = applicationContext.getEnvironment().getActiveProfiles()[0];
+
+        log.info("project properties active ：{}",active);
         // 加载配置文件
         Properties properties = loadLocalProperties(active);
 
@@ -95,7 +99,7 @@ public class Application {
             yaml.setResources(new ByteArrayResource(config.getBytes()));
             nacosProperties = yaml.getObject();
         } catch (NacosException e) {
-            throw new RuntimeException(String.format("加载Nacos:%s 配置中心配置失败",serverAddr));
+            throw new RuntimeException(String.format("Load Nacos:%s failed!",serverAddr));
         }
         return nacosProperties;
     }
