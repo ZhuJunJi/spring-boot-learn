@@ -2,7 +2,7 @@ spring:
   profiles: dev
 nacos:
   config:
-    server-addr: 192.168.137.1:8848
-    namespace: 51016d02-a351-49a0-acb8-6569b5ca5c72
+    server-addr: 18.191.246.253:8848
+    namespace: cf5cc064-83f4-4bf2-bd43-5a8e1a3513ff
   discovery:
-    server-addr: 192.168.137.1:8848
+    server-addr: 18.191.246.253:8848
