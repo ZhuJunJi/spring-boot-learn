@@ -9,7 +9,7 @@
     </resultMap>
 
     <insert id="insert" parameterType="com.spring.learn.common.entity.User">
-        INSERT INTO `test`.`user`(`user_name`, `age`) VALUES (#{userName}, #{age});
+        INSERT INTO `user` (`user_name`, `age`) VALUES (#{userName}, #{age});
     </insert>
 
     <select id="getById" parameterType="java.lang.Integer" resultMap="BaseResultMap">

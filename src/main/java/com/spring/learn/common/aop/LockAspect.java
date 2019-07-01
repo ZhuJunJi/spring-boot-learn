@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -108,7 +109,8 @@ public class LockAspect {
 	    Long lockKey = null;
         Object[] args = joinPoint.getArgs();
         MethodSignature signature = (MethodSignature)joinPoint.getSignature();
-        Annotation[][] parameterAnnotations = signature.getMethod().getParameterAnnotations();
+        Method method = signature.getMethod();
+        Annotation[][] parameterAnnotations = method.getParameterAnnotations();
         for (Annotation[] parameterAnnotation: parameterAnnotations) {
             int paramIndex= ArrayUtils.indexOf(parameterAnnotations, parameterAnnotation);
             for (Annotation annotation: parameterAnnotation) {

@@ -9,18 +9,21 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
+
 import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  * @author Administrator
  */
 @MapperScan("com.spring.learn.mapper")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.spring.learn")
 @NacosPropertySource(dataId = "spring-boot-learn", autoRefreshed = true)
 @Slf4j
 public class Application {
@@ -59,6 +62,14 @@ public class Application {
         return placeholder;
     }
 
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer jacksonBuilderCustomizer() {
+        return builder -> {
+            builder.indentOutput(true);
+            builder.timeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        };
+    }
+
     /**
      * 加载配置文件
      * @return Properties 本地配置
@@ -69,6 +80,9 @@ public class Application {
         // 本地配置文件
         Properties localProperties = yaml.getObject();
         // 获取 Nacos serverAddr
+        if(localProperties == null){
+            log.error("初始化配置文件application.yml获取失败！");
+        }
         assert localProperties != null;
         String serverAddr = localProperties.getProperty("nacos.config.server-addr");
         // 获取 Nacos namespace

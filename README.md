@@ -113,7 +113,7 @@ docker cp <宿主机目标路径> <容器ID>:<要复制的容器中的文件路�
 # 环境配置Redis、Zookeeper、Kafka、MySQL
 # Redis
 ```
-docker run -d -p 6379:6379 --name redis --privileged=true -v /home/redis/redis.conf:/etc/redis/redis.conf -v /home/redis/data:/data docker.io/redis redis-server /etc/redis/redis.conf --appendonly yes
+docker run -d -p 6379:6379 --name redis --privileged=true -v /home/redis/redis.conf:/etc/redis/redis.conf -v /home/redis/data:/data docker.io/redis redis-server /etc/redis/redis.conf --appendonly yes --requirepass "password"
 ```
 # Zookeeper
 ```

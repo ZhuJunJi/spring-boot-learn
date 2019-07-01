@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.learn.mapper.CoffeeMapper">
+
+    <resultMap id="BaseResultMap" type="com.spring.learn.common.entity.Coffee">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="price" property="price"  typeHandler="com.spring.learn.common.support.MoneyTypeHandler"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+
+    <insert id="insertCoffee" parameterType="com.spring.learn.common.entity.SuccessKilled">
+        INSERT INTO `t_coffee` (`id`, `name`,`price`,`create_time`,`update_time`) VALUES (#{id}, #{name}, #{price.amountMinorLong}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP});
+    </insert>
+
+    <select id="getById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        SELECT `id`,`name`,`price`,`create_time` createTime,`update_time` updateTime
+        FROM t_coffee WHERE id = #{id}
+    </select>
+
+</mapper>

@@ -12,27 +12,27 @@
     </resultMap>
 
     <insert id="saveSuccessKilled" parameterType="com.spring.learn.common.entity.SuccessKilled">
-        INSERT INTO `test`.`success_killed` (`seckill_id`, `user_id`,`state`,`create_time`) VALUES (#{seckillId}, #{userId}, #{state}, #{createTime});
+        INSERT INTO `success_killed` (`seckill_id`, `user_id`,`state`,`create_time`) VALUES (#{seckillId}, #{userId}, #{state}, #{createTime});
     </insert>
     
     <update id="deductedNumberBySeckillId" parameterType="java.lang.Long">
-        UPDATE `test`.`seckill`  SET `number`=`number`-1 WHERE seckill_id=#{seckillId} AND `number` > 0
+        UPDATE `seckill`  SET `number`=`number`-1 WHERE seckill_id=#{seckillId} AND `number` > 0
     </update>
 
     <delete id="deleteSuccessSeckilled" parameterType="java.lang.Long">
-        DELETE FROM  `test`.`success_killed` WHERE seckill_id = #{seckillId}
+        DELETE FROM  `success_killed` WHERE seckill_id = #{seckillId}
     </delete>
 
     <update id="resetSeckill" parameterType="java.lang.Long">
-        UPDATE `test`.`seckill` SET `number`=100 WHERE seckill_id = #{seckillId}
+        UPDATE `seckill` SET `number`=100 WHERE seckill_id = #{seckillId}
     </update>
 
     <select id="getSeckillCount" parameterType="java.lang.Long" resultType="java.lang.Long">
-        SELECT count(*) FROM `test`.`success_killed` WHERE seckill_id = #{seckillId}
+        SELECT count(*) FROM `success_killed` WHERE seckill_id = #{seckillId}
     </select>
 
     <select id="getCountBySeckillId" parameterType="java.lang.Long" resultType="java.lang.Long">
-        SELECT `number` FROM `test`.`seckill` WHERE seckill_id = #{seckillId}
+        SELECT `number` FROM `seckill` WHERE seckill_id = #{seckillId}
     </select>
 
 </mapper>
